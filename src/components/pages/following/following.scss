@@ -1,0 +1,81 @@
+.following {
+  &__title {
+    margin-bottom: 42px;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 60px;
+    color: #21243D;
+  }
+
+  &__list {
+    position: relative;
+    display: grid;
+    gap: 16px;
+    list-style-type: none;
+    padding-top: 16px;
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 858px;
+      height: 2px;
+      background-color: #E0E0E0;
+      border-radius: 6px;
+      content: "";
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 124px 1fr 151px;
+    gap: 28px;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+
+    &::after {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 858px;
+      height: 2px;
+      background-color: #E0E0E0;
+      border-radius: 6px;
+      content: "";
+    }
+  }
+
+  &__img {
+    width: 124px;
+    height: 124px;
+    border-radius: 50%;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 60px;
+    color: #21243D;
+  }
+
+  &__bio {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #21243D;
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+  }
+
+  &__link, &__unfollow {
+    padding: 8px 16px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

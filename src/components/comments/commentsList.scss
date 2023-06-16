@@ -1,0 +1,80 @@
+.work-comments {
+  display: grid;
+  gap: 32px;
+
+  &__container {
+    display: grid;
+    gap: 16px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 44px;
+    color: #21243D;
+
+    &--icon {
+      height: 50px;
+      background: url('../../resources/img/comments-black.svg') left center no-repeat;
+      background-size: 50px;
+      padding-left: 66px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__textarea {
+    width: 100%;
+    min-height: 74px;
+    padding: 12px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    resize: vertical;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 31px;
+    background: #FF6464;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 29px;
+    text-align: center;
+    color: #FFFFFF;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+  }
+
+  &__list {
+    position: relative;
+    list-style: none;
+    display: grid;
+    gap: 16px;
+    padding-top: 16px;
+    &:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 2px;
+      background-color: #E0E0E0;
+      content: '';
+    }
+  }
+}

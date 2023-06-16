@@ -1,0 +1,71 @@
+.popular {
+  &__content {
+    padding: 70px 28px;
+    background: linear-gradient(270deg, #142850 0%, #52366F 25%, #933E7D 50%, #D04978 75%, #FF6464 100%);
+    border-radius: 5px;
+  }
+
+  &__list {
+    max-width: 802px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style-type: none;
+    padding: 2px 0 24px 2px;
+    //padding-bottom: 16px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      height: 7px;
+      border-radius: 5px;
+      box-shadow: 7px 4px 8px black;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #fff;
+      border-radius: 5px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #FF6464;
+      border-radius: 5px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #142850;
+    }
+  }
+
+  &__item {
+    display: grid;
+    gap: 8px;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 18px;
+    color: white;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.4s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__preview {
+    transition: all 0.4s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

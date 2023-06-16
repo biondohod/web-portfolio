@@ -1,0 +1,28 @@
+.works {
+    &__list {
+        display: grid;
+        gap: 16px;
+        list-style-type: none;
+    }
+
+    &__item {
+        position: relative;
+        display: grid;
+        grid-template-columns: 246px 1fr;
+        align-items: start;
+        gap: 16px;
+        padding-bottom: 16px;
+        overflow: hidden;
+
+        &::after {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 858px;
+            height: 2px;
+            background-color: #E0E0E0;
+            border-radius: 6px;
+            content: "";
+        }
+    }
+}

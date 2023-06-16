@@ -1,0 +1,19 @@
+.my-works {
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        font-weight: 900;
+        font-size: 44px;
+        line-height: 60px;
+        color: #21243D;
+    }
+
+    &__btn {
+        padding: 8px 26px;
+    }
+}

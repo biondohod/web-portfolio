@@ -1,0 +1,91 @@
+.profile {
+  display: grid;
+  gap: 30px;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 507px 1fr;
+    gap: 108px;
+  }
+
+  &__col {
+    &--left {
+      display: grid;
+      gap: 20px;
+      align-items: start;
+      justify-items: start;
+      padding-top: 52px;
+    }
+
+    &--right {
+      display: grid;
+      gap: 24px;
+      align-content: start;
+      justify-items: center;
+    }
+  }
+
+  &__username {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FF6464;
+    border-radius: 16px;
+    padding: 8px 55px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 32px;
+    color: #FFFFFF;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 60px;
+    color: #21243D;
+
+  }
+
+  &__bio {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #21243D;
+  }
+
+  &__btn {
+    padding: 8px 50px;
+  }
+
+  &__img {
+    width: 243px;
+    height: 243px;
+    border-radius: 50%;
+  }
+
+  &__followers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #142850;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 32px;
+    padding: 5px 24px;
+    color: #FFFFFF;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 48px;
+    color: #21243D;
+  }
+
+  &__works-btn {
+    margin: 32px auto 0 auto;
+    padding: 8px 60px;
+  }
+}
