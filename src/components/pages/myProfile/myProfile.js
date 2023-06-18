@@ -21,6 +21,8 @@ const Profile = () => {
     const [userId, setUserId] = useState(currentId);
     const [followersCount, setFollowersCount] = useState(0);
     const [isFollow, setIsFollow] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
     const checkIsUser = () => {
         if (parseInt(localStorage.getItem('id')) === userId) {
             setIsUserProfile(true);
@@ -55,6 +57,20 @@ const Profile = () => {
     }
     const {id, username, email, fullname, bio, projects, is_followed} = userData;
 
+    const createError = (message) => {
+        setIsError(true);
+        setErrorMessage(`Oops! ${message}`);
+        const errorMessage = document.querySelector('.errorMessage');
+        errorMessage.classList.remove('slideOutUp');
+        errorMessage.classList.add('slideInDown');
+        setTimeout(() => {
+            errorMessage.classList.remove('slideInDown');
+            errorMessage.classList.add('slideOutUp');
+        }, 5000);
+        setTimeout(() => {
+            setIsError(false);
+        }, 6000);
+    }
 
     const onFollow = () => {
         const obj = {'id': currentId};
@@ -63,6 +79,9 @@ const Profile = () => {
             if (result.ok) {
                 setIsFollow(true);
                 setFollowersCount(followersCount + 1);
+            }
+            else {
+                createError('You are not logged in')
             }
         });
     }
@@ -122,7 +141,10 @@ const Profile = () => {
         return (<></>)
     }
 
-    return (<section className="profile">
+    return (
+        <section className="profile">
+            <div className="errorMessage animated"
+                 style={isError ? {display: "block"} : {display: "none"}}>{errorMessage}</div>
         <div className="profile__wrapper">
             <div className="profile__col--left">
                 <span className="profile__username">@{username}</span>

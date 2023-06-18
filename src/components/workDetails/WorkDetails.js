@@ -21,6 +21,8 @@ const WorkDetails = () => {
     const [likesCount,setLikesCount] = useState(0);
     const [isLiked, setIsLiked] = useState(false);
     const [isUserProfile, setIsUserProfile] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const projectId = useParams().projectid;
     const userId = useParams().id;
@@ -44,15 +46,35 @@ const WorkDetails = () => {
         window.open(e.target.href, '_blank');
     }
 
+    const createError = (message) => {
+        setIsError(true);
+        setErrorMessage(`Oops! ${message}`);
+        const errorMessage = document.querySelector('.errorMessage');
+        errorMessage.classList.remove('slideOutUp');
+        errorMessage.classList.add('slideInDown');
+        setTimeout(() => {
+            errorMessage.classList.remove('slideInDown');
+            errorMessage.classList.add('slideOutUp');
+        }, 5000);
+        setTimeout(() => {
+            setIsError(false);
+        }, 6000);
+    }
+
     const {user_id, name, description, readme, likes_count, comments_count, created_at, updated_at, is_liked, folder} = project;
 
     const onCreateLike = () => {
         const object = {"id": parseInt(projectId)};
         const json = JSON.stringify(object);
         createLike(json, localStorage.getItem('token')).then((result) => {
-            setIsLiked(true)
+            if (result.ok) {
+                setIsLiked(true)
+                setLikesCount(likesCount + 1)
+            }
+            else {
+                createError('You are not logged in')
+            }
         });
-        setLikesCount(likesCount + 1)
     }
 
     const checkIsUserProfile = ()  => {
@@ -117,6 +139,8 @@ const WorkDetails = () => {
 
     return (
         <section className="work-details">
+            <div className="errorMessage animated"
+                 style={isError ? {display: "block"} : {display: "none"}}>{errorMessage}</div>
             <div className="work-details__header">
                 <h1 className="work-details__name">{name}</h1>
                 <div className="work-details__btns">
